@@ -18,12 +18,16 @@ public class HomePage {
     }
 
     public BasketPage clickBasketButton() {
-        getDriver().findElement(By.xpath(HomePageXpath.BASKET_LOCATOR_XPATH)).click();
+        getDriver().findElement(By.xpath(HomePageXpath.BASKET_LOCATOR_XPATH_LOCATOR)).click();
         return new BasketPage(getDriver());
     }
 
     public LoginPage clickLoginButton() {
-        getDriver().findElement(By.xpath(HomePageXpath.LOGIN_LOCATOR_XPATH)).click();
+        getDriver().findElement(By.xpath(HomePageXpath.LOGIN_LOCATOR_XPATH_LOCATOR)).click();
         return new LoginPage(getDriver());
+    }
+
+    public void addAdventCalenderToBasket(){
+
     }
 }
