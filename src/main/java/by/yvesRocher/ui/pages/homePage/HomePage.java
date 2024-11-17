@@ -1,6 +1,7 @@
 package by.yvesRocher.ui.pages.homePage;
 
 import by.yvesRocher.ui.driver.Driver;
+import by.yvesRocher.ui.pages.basketPage.BasketPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,12 +16,12 @@ public class HomePage {
         this.driver = Driver.getDriver();
     }
 
-    public HomePage clickBasketButton(){
+    public BasketPage clickBasketButton() {
         getDriver().findElement(By.xpath(HomePageXpath.BASKET_LOCATOR_XPATH)).click();
-        return this;
+        return new BasketPage(getDriver());
     }
 
-    public HomePage clickLoginButton(){
+    public HomePage clickLoginButton() {
         getDriver().findElement(By.xpath(HomePageXpath.LOGIN_LOCATOR_XPATH)).click();
         return this;
     }
