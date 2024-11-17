@@ -1,10 +1,10 @@
 package by.yvesRocher.ui.pages.loginPage;
 
-import by.yvesRocher.ui.utils.driver.Driver;
+import by.yvesRocher.ui.pages.homePage.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class LoginPage extends HomePage {
     private WebDriver driver;
 
     public WebDriver getDriver() {
