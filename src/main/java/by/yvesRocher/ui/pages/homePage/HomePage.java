@@ -27,7 +27,9 @@ public class HomePage {
         return new LoginPage(getDriver());
     }
 
-    public void addAdventCalendarToBasket(){
-
+    public HomePage addAdventCalendarToBasket() {
+        getDriver().findElement(By.xpath(HomePageXpath.ADVENT_CALENDAR_XPATH_LOCATOR)).click();
+        getDriver().findElement(By.xpath(HomePageXpath.CLOSE_BUTTON_XPATH_LOCATOR));
+        return this;
     }
 }
