@@ -9,7 +9,7 @@ public class Driver {
     public Driver() {
     }
 
-    private static WebDriver getDriver() {
+    public static WebDriver getDriver() {
         if (driver == null) {
             driver = new ChromeDriver();
         }
@@ -17,7 +17,7 @@ public class Driver {
         return driver;
     }
 
-    private static void quidDriver() {
+    public static void quidDriver() {
         if (driver != null) {
             driver.quit();
             driver = null;
