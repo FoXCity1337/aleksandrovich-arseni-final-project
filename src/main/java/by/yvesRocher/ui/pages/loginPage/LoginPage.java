@@ -1,6 +1,6 @@
 package by.yvesRocher.ui.pages.loginPage;
 
-import by.yvesRocher.ui.driver.Driver;
+import by.yvesRocher.ui.utils.driver.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

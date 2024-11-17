@@ -1,6 +1,6 @@
 package by.yvesRocher.ui.pages.homePage;
 
-import by.yvesRocher.ui.driver.Driver;
+import by.yvesRocher.ui.utils.driver.Driver;
 import by.yvesRocher.ui.pages.basketPage.BasketPage;
 import by.yvesRocher.ui.pages.loginPage.LoginPage;
 import org.openqa.selenium.By;
