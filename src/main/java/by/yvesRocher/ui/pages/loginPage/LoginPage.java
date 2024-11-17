@@ -12,7 +12,7 @@ public class LoginPage {
     }
 
     public LoginPage(WebDriver driver) {
-        this.driver = Driver.getDriver();
+        this.driver = driver;
     }
 
     public LoginPage clickAuthorization() {

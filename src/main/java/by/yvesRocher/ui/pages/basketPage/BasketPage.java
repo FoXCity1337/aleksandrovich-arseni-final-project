@@ -12,7 +12,7 @@ public class BasketPage {
     }
 
     public BasketPage(WebDriver driver) {
-        this.driver = Driver.getDriver();
+        this.driver = driver;
     }
 
     public BasketPage clickDeleteProduct(){
