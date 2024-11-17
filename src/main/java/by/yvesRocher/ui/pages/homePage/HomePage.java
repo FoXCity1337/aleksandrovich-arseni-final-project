@@ -2,6 +2,7 @@ package by.yvesRocher.ui.pages.homePage;
 
 import by.yvesRocher.ui.driver.Driver;
 import by.yvesRocher.ui.pages.basketPage.BasketPage;
+import by.yvesRocher.ui.pages.loginPage.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -21,8 +22,8 @@ public class HomePage {
         return new BasketPage(getDriver());
     }
 
-    public HomePage clickLoginButton() {
+    public LoginPage clickLoginButton() {
         getDriver().findElement(By.xpath(HomePageXpath.LOGIN_LOCATOR_XPATH)).click();
-        return this;
+        return new LoginPage(getDriver());
     }
 }
