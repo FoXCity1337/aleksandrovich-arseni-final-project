@@ -27,7 +27,7 @@ public class HomePage {
         return new LoginPage(getDriver());
     }
 
-    public void addAdventCalenderToBasket(){
+    public void addAdventCalendarToBasket(){
 
     }
 }
