@@ -1,8 +1,6 @@
 package by.yvesRocher.ui.pages.loginPage;
 
 import by.yvesRocher.ui.pages.homePage.HomePage;
-import by.yvesRocher.ui.pages.homePage.HomePageXpath;
-import by.yvesRocher.ui.utils.driver.Driver;
 import by.yvesRocher.ui.utils.random.RandomData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -39,6 +37,13 @@ public class LoginPage extends HomePage {
         return this;
     }
 
+    public LoginPage inputEmail (String invalidEmail) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)));
+        getDriver().findElement(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)).sendKeys(invalidEmail);
+        return this;
+    }
+
     public LoginPage inputPassword(int min, int max) {
         getDriver().findElement(By.xpath(LoginPageXpath.PASSWORD_FIELD_LOCATOR_XPATH))
                 .sendKeys(RandomData.generatePassword(min, max));
@@ -50,7 +55,7 @@ public class LoginPage extends HomePage {
         return this;
     }
 
-    public String getWrongDataMessage() {
+    public String getErrorMessage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.ERROR_MESSAGE_XPATH)));
         return getDriver().findElement(By.xpath(LoginPageXpath.ERROR_MESSAGE_XPATH)).getText();

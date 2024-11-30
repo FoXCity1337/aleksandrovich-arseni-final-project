@@ -19,7 +19,7 @@ public class HomePageTest extends BaseTest {
                 .inputEmail()
                 .inputPassword(6, 30)
                 .clickAuthorizationButton()
-                .getWrongDataMessage());
+                .getErrorMessage());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class HomePageTest extends BaseTest {
                 .inputEmail()
                 .inputPassword(1, 5)
                 .clickAuthorizationButton()
-                .getWrongDataMessage());
+                .getErrorMessage());
     }
 
     @Test
@@ -41,8 +41,17 @@ public class HomePageTest extends BaseTest {
                 .inputEmail()
                 .inputPassword(31, 32)
                 .clickAuthorizationButton()
-                .getWrongDataMessage());
+                .getErrorMessage());
     }
 
-
+    @Test
+    @DisplayName("Input invalid email")
+    public void test4() {
+        Assertions.assertEquals(LoginPageMessages.INVALID_EMAIL_MESSAGE, homePage.closeCookie()
+                .clickLoginButton()
+                .inputEmail("123@")
+                .inputPassword(6, 30)
+                .clickAuthorizationButton()
+                .getErrorMessage());
+    }
 }
