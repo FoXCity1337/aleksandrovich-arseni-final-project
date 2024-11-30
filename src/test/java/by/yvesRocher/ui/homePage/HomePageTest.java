@@ -21,4 +21,15 @@ public class HomePageTest extends BaseTest {
                 .clickAuthorizationButton()
                 .getWrongDataMessage());
     }
+
+    @Test
+    @DisplayName("Input short password")
+    public void test2() {
+        Assertions.assertEquals(LoginPageMessages.SHORT_PASSWORD_MESSAGE, homePage.closeCookie()
+                .clickLoginButton()
+                .inputEmail()
+                .inputPassword(1, 5)
+                .clickAuthorizationButton()
+                .getWrongDataMessage());
+    }
 }

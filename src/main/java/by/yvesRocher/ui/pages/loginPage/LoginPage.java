@@ -50,7 +50,8 @@ public class LoginPage extends HomePage {
 
     public String getWrongDataMessage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.WRONG_DATA_MESSAGE_XPATH)));
-        return getDriver().findElement(By.xpath(LoginPageXpath.WRONG_DATA_MESSAGE_XPATH)).getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.ERROR_MESSAGE_XPATH)));
+        return getDriver().findElement(By.xpath(LoginPageXpath.ERROR_MESSAGE_XPATH)).getText();
     }
+
 }
