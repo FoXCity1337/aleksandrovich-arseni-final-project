@@ -22,14 +22,14 @@ public class HomePage {
     }
 
     public BasketPage clickBasketButton() {
-        getDriver().findElement(By.xpath(HomePageXpath.BASKET_LOCATOR_XPATH_LOCATOR)).click();
+        getDriver().findElement(By.xpath(HomePageXpath.BASKET_BUTTON_XPATH_LOCATOR)).click();
         return new BasketPage(getDriver());
     }
 
     public LoginPage clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HomePageXpath.LOGIN_LOCATOR_XPATH_LOCATOR)));
-        getDriver().findElement(By.xpath(HomePageXpath.LOGIN_LOCATOR_XPATH_LOCATOR)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HomePageXpath.LOGIN_BUTTON_XPATH_LOCATOR)));
+        getDriver().findElement(By.xpath(HomePageXpath.LOGIN_BUTTON_XPATH_LOCATOR)).click();
         return new LoginPage(getDriver());
     }
 
@@ -41,6 +41,13 @@ public class HomePage {
 
     public HomePage clickCloseButton(){
         getDriver().findElement(By.xpath(HomePageXpath.CLOSE_BUTTON_XPATH_LOCATOR)).click();
+        return this;
+    }
+
+    public HomePage closeCookie() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HomePageXpath.LOGIN_BUTTON_XPATH_LOCATOR)));
+        getDriver().findElement(By.xpath(HomePageXpath.COOKIE_ACCEPT_BUTTON_LOCATOR)).click();
         return this;
     }
 }

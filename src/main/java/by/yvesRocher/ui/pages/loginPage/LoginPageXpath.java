@@ -6,4 +6,6 @@ public class LoginPageXpath {
     protected static final String EMAIL_FIELD_LOCATOR_XPATH = "//input[@formcontrolname='email']";
     protected static final String PASSWORD_FIELD_LOCATOR_XPATH = "//input[@formcontrolname='password']";
     protected static final String AUTHORIZATION_BUTTON_LOCATOR_XPATH = "//button[@type='submit']";
+
+    public static final String WRONG_DATA_MESSAGE_XPATH = "//div[@class='ng-star-inserted']";
 }
