@@ -17,7 +17,7 @@ public class HomePageTest extends BaseTest {
         Assertions.assertEquals(LoginPageMessages.WRONG_DATA_MESSAGE, homePage.closeCookie()
                 .clickLoginButton()
                 .inputEmail()
-                .inputPassword(6,30)
+                .inputPassword(6, 30)
                 .clickAuthorizationButton()
                 .getWrongDataMessage());
     }
