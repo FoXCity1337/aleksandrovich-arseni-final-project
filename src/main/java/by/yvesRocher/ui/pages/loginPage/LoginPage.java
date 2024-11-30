@@ -33,6 +33,8 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage inputEmail() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)));
         getDriver().findElement(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)).sendKeys(RandomData.generateEmail());
         return this;
     }

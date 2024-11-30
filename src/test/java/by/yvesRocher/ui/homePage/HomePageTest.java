@@ -32,4 +32,17 @@ public class HomePageTest extends BaseTest {
                 .clickAuthorizationButton()
                 .getWrongDataMessage());
     }
+
+    @Test
+    @DisplayName("Input long password")
+    public void test3() {
+        Assertions.assertEquals(LoginPageMessages.LONG_PASSWORD_MESSAGE, homePage.closeCookie()
+                .clickLoginButton()
+                .inputEmail()
+                .inputPassword(31, 32)
+                .clickAuthorizationButton()
+                .getWrongDataMessage());
+    }
+
+
 }
