@@ -13,12 +13,12 @@ import java.time.Duration;
 public class HomePage {
     private WebDriver driver;
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
     public HomePage() {
         this.driver = Driver.getDriver();
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
     public BasketPage clickBasketButton() {

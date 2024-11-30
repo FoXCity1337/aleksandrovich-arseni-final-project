@@ -7,12 +7,12 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends HomePage {
     private WebDriver driver;
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
     public LoginPage clickAuthorization() {
@@ -31,7 +31,7 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage inputPassword() {
-        getDriver().findElement(By.xpath(LoginPageXpath.PASSWORD_FIELD_LOCATOR_XPATH)).sendKeys("qwerty");
+        getDriver().findElement(By.xpath(LoginPageXpath.PASSWORD_FIELD_LOCATOR_XPATH)).sendKeys("132");
         return this;
     }
 
