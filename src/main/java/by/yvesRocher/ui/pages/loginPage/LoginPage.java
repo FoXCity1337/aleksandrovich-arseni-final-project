@@ -2,63 +2,62 @@ package by.yvesRocher.ui.pages.loginPage;
 
 import by.yvesRocher.ui.pages.homePage.HomePage;
 import by.yvesRocher.ui.utils.random.RandomData;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
 public class LoginPage extends HomePage {
     private WebDriver driver;
+    private WebDriverWait wait;
 
-    public LoginPage(WebDriver driver) {
+    @FindBy(xpath = "//input[@formcontrolname='email']")
+    private WebElement emailField;
+
+    @FindBy(xpath = "//input[@formcontrolname='password']")
+    private WebElement passwordField;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement authorizationButton;
+
+    @FindBy(xpath = "//div[@class='ng-star-inserted']")
+    private WebElement errorMessage;
+
+    public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
+        this.wait = wait;
     }
 
     public WebDriver getDriver() {
         return driver;
     }
 
-    public LoginPage clickAuthorization() {
-        getDriver().findElement(By.xpath(LoginPageXpath.AUTHORIZATION_MENU_LOCATOR_XPATH)).click();
-        return this;
-    }
-
-    public LoginPage clickRegistration() {
-        getDriver().findElement(By.xpath(LoginPageXpath.REGISTRATION_BUTTON_LOCATOR_XPATH)).click();
-        return this;
-    }
-
     public LoginPage inputEmail() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)));
-        getDriver().findElement(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)).sendKeys(RandomData.generateEmail());
+        wait.until(ExpectedConditions.visibilityOf(emailField));
+        emailField.sendKeys(RandomData.generateEmail());
         return this;
     }
 
-    public LoginPage inputEmail (String invalidEmail) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)));
-        getDriver().findElement(By.xpath(LoginPageXpath.EMAIL_FIELD_LOCATOR_XPATH)).sendKeys(invalidEmail);
+    public LoginPage inputEmail(String invalidEmail) {
+        wait.until(ExpectedConditions.visibilityOf(emailField));
+        emailField.sendKeys(invalidEmail);
         return this;
     }
 
     public LoginPage inputPassword(int min, int max) {
-        getDriver().findElement(By.xpath(LoginPageXpath.PASSWORD_FIELD_LOCATOR_XPATH))
-                .sendKeys(RandomData.generatePassword(min, max));
+        passwordField.sendKeys(RandomData.generatePassword(min, max));
         return this;
     }
 
     public LoginPage clickAuthorizationButton() {
-        getDriver().findElement(By.xpath(LoginPageXpath.AUTHORIZATION_BUTTON_LOCATOR_XPATH)).click();
+        authorizationButton.click();
         return this;
     }
 
     public String getErrorMessage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LoginPageXpath.ERROR_MESSAGE_XPATH)));
-        return getDriver().findElement(By.xpath(LoginPageXpath.ERROR_MESSAGE_XPATH)).getText();
+        wait.until(ExpectedConditions.visibilityOf(errorMessage));
+        return errorMessage.getText();
     }
-
 }
