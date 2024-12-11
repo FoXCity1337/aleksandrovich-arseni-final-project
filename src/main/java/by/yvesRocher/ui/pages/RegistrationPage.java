@@ -60,10 +60,14 @@ public class RegistrationPage extends HomePage {
         nameField.sendKeys(RandomData.generateName());
         patronymicField.sendKeys(RandomData.generateName());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
+        selectData();
+        return this;
+    }
+
+    private void selectData() {
         selectDay();
         selectMonth();
         selectYear();
-        return this;
     }
 
     private void selectDay() {

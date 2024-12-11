@@ -25,7 +25,7 @@ public class HomePage {
     @FindBy(xpath = "//button[@class='btn cookie-actions-button'][2]")
     private WebElement cookieAccept;
 
-    @FindBy(xpath = "//owl-stage[@class='ng-tns-c62-3 ng-star-inserted']//a[contains(@href, 'magnolia')]//button")
+    @FindBy(css = "#nav-home div > div:nth-child(2) > app-goods-card > a > div.rating-and-price > button")
     private WebElement firstProduct;
 
     @FindBy(xpath = "//button[@aria-label='Close']")
