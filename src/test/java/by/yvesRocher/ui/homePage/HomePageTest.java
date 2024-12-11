@@ -85,9 +85,6 @@ public class HomePageTest extends BaseTest {
                 .clickRegistration()
                 .inputEmail()
                 .clickSubmitButton()
-                .fillOutForm()
-                .selectDay()
-                .selectMonth()
-                .selectYear();
+                .fillOutForm();
     }
 }

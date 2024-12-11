@@ -54,36 +54,36 @@ public class RegistrationPage extends HomePage {
         return wait;
     }
 
-    public RegistrationPage fillOutForm(){
+    public RegistrationPage fillOutForm() {
         maleLabel.click();
         lastnameField.sendKeys(RandomData.generateLastname());
         nameField.sendKeys(RandomData.generateName());
         patronymicField.sendKeys(RandomData.generateName());
-        passwordField.sendKeys(RandomData.generatePassword(6,30));
+        passwordField.sendKeys(RandomData.generatePassword(6, 30));
+        selectDay();
+        selectMonth();
+        selectYear();
         return this;
     }
 
-    public RegistrationPage selectDay(){
+    private void selectDay() {
         selectInnerDay.click();
         String randomDay = "//ul[@class='select-inner day opened']/li[3]";
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(randomDay)));
         getDriver().findElement(By.xpath(randomDay)).click();
-        return this;
     }
 
-    public RegistrationPage selectMonth(){
+    private void selectMonth() {
         selectInnerMonth.click();
         String month = "//ul[@class='select-inner month opened']/li[1]";
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(month)));
         getDriver().findElement(By.xpath(month)).click();
-        return this;
     }
 
-    public RegistrationPage selectYear(){
+    private void selectYear() {
         selectInnerYear.click();
         String year = "//ul[@class='select-inner year opened']/li[3]";
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(year)));
         getDriver().findElement(By.xpath(year)).click();
-        return this;
     }
 }
