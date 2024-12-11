@@ -1,7 +1,6 @@
 package by.yvesRocher.ui.pages.basketPage;
 
 import by.yvesRocher.ui.pages.homePage.HomePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,8 +11,8 @@ public class BasketPage extends HomePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(xpath = "//a[contains(@href, 'kalendar-2024')]")
-    private WebElement adventCalendar;
+    @FindBy(xpath = "//a[contains(@href,'magnolia')]")
+    private WebElement firstProduct;
 
     @FindBy(xpath = "//span[contains(text(),'пуста')]")
     private WebElement emptyBasket;
@@ -30,20 +29,15 @@ public class BasketPage extends HomePage {
         this.wait = wait;
     }
 
-    public String findAdventCalendar() {
-        wait.until(ExpectedConditions.visibilityOf(adventCalendar));
-        return adventCalendar.getText();
+    public String findFirstProduct() {
+        wait.until(ExpectedConditions.visibilityOf(firstProduct));
+        return firstProduct.getText();
     }
 
     public String clickDeleteProduct() {
-        wait.until(ExpectedConditions.visibilityOf(deleteProduct));
+        wait.until(ExpectedConditions.elementToBeClickable(deleteProduct));
         deleteProduct.click();
         wait.until(ExpectedConditions.visibilityOf(emptyBasket));
         return emptyBasket.getText();
-    }
-
-    public BasketPage clickContinueButton() {
-        getDriver().findElement(By.xpath(BasketPageXpath.CONTINUE_BUTTON_LOCATOR_XPATH));
-        return this;
     }
 }

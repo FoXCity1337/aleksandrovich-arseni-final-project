@@ -6,7 +6,6 @@ import by.yvesRocher.ui.pages.loginPage.LoginPageMessages;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 public class HomePageTest extends BaseTest {
 
@@ -59,22 +58,36 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
-    @DisplayName(("Checking advent-calendar in basket"))
+    @DisplayName(("Checking first product in basket"))
     public void test5() {
-        String expected = "Адвент-Календарь - Лимитированная Коллекция";
+        String expected = "Гель Для Душа И Ванны \"Гранат И Магнолия\"";
         Assertions.assertEquals(expected, homePage.closeCookie()
-                .addAdventCalendarToBasket()
+                .addFirstProductInBasket()
                 .clickBasketButton()
-                .findAdventCalendar());
+                .findFirstProduct());
     }
 
     @Test
-    @DisplayName(("Delete advent-calendar from basket"))
+    @DisplayName(("Delete product from basket"))
     public void test6() {
         String expected = "пуста";
         Assertions.assertEquals(expected, homePage.closeCookie()
-                .addAdventCalendarToBasket()
+                .addFirstProductInBasket()
                 .clickBasketButton()
                 .clickDeleteProduct());
+    }
+
+    @Test
+    @DisplayName(("Registration form"))
+    public void test7() {
+        homePage.closeCookie()
+                .clickLoginButton()
+                .clickRegistration()
+                .inputEmail()
+                .clickSubmitButton()
+                .fillOutForm()
+                .selectDay()
+                .selectMonth()
+                .selectYear();
     }
 }

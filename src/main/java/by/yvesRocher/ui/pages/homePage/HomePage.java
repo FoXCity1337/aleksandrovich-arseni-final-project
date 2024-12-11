@@ -3,6 +3,7 @@ package by.yvesRocher.ui.pages.homePage;
 import by.yvesRocher.ui.pages.basketPage.BasketPage;
 import by.yvesRocher.ui.pages.loginPage.LoginPage;
 import by.yvesRocher.ui.utils.driver.Driver;
+import by.yvesRocher.ui.utils.driver.Wait;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,8 +11,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage {
     private WebDriver driver;
@@ -26,15 +25,15 @@ public class HomePage {
     @FindBy(xpath = "//button[@class='btn cookie-actions-button'][2]")
     private WebElement cookieAccept;
 
-    @FindBy(xpath = "//owl-stage[contains(@class, 'c62-3')]//a[contains(@href, 'kalendar-2024')]//button[@type='button']")
-    private WebElement adventCalendar;
+    @FindBy(xpath = "//owl-stage[@class='ng-tns-c62-3 ng-star-inserted']//a[contains(@href, 'magnolia')]//button")
+    private WebElement firstProduct;
 
     @FindBy(xpath = "//button[@aria-label='Close']")
     private WebElement closeButton;
 
     public HomePage() {
         this.driver = Driver.getDriver();
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = Wait.getWait();
         PageFactory.initElements(driver, this);
     }
 
@@ -56,9 +55,9 @@ public class HomePage {
         return new LoginPage(getDriver(), getWait());
     }
 
-    public HomePage addAdventCalendarToBasket() {
-        wait.until(ExpectedConditions.elementToBeClickable(adventCalendar));
-        adventCalendar.click();
+    public HomePage addFirstProductInBasket() {
+        wait.until(ExpectedConditions.elementToBeClickable(firstProduct));
+        firstProduct.click();
         closeButton.click();
         return this;
     }
