@@ -6,6 +6,7 @@ import by.yvesRocher.ui.pages.loginPage.LoginPageMessages;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 public class HomePageTest extends BaseTest {
 
