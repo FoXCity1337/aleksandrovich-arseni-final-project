@@ -3,6 +3,7 @@ package by.yvesRocher.ui.pages.loginPage;
 import by.yvesRocher.ui.pages.RegistrationPage;
 import by.yvesRocher.ui.pages.homePage.HomePage;
 import by.yvesRocher.ui.utils.random.RandomData;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,7 +48,7 @@ public class LoginPage extends HomePage {
             try {
                 emailField.sendKeys(RandomData.generateEmail());
                 break;
-            } catch (StaleElementReferenceException e) {
+            } catch (StaleElementReferenceException | NoSuchElementException e) {
                 if (i == 3 - 1) throw e;
             }
         }
