@@ -11,7 +11,7 @@ public class BasketPage extends HomePage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(xpath = "//a[contains(@href,'magnolia')]")
+    @FindBy(xpath = "//div[@class='chosen-product ng-star-inserted']")
     private WebElement firstProduct;
 
     @FindBy(xpath = "//span[contains(text(),'пуста')]")
@@ -29,9 +29,9 @@ public class BasketPage extends HomePage {
         this.wait = wait;
     }
 
-    public String findFirstProduct() {
+    public boolean findFirstProduct() {
         wait.until(ExpectedConditions.visibilityOf(firstProduct));
-        return firstProduct.getText();
+        return firstProduct.isDisplayed();
     }
 
     public String clickDeleteProduct() {

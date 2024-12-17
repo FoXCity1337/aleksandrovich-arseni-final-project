@@ -25,7 +25,7 @@ public class HomePage {
     @FindBy(xpath = "//button[@class='btn cookie-actions-button'][2]")
     private WebElement cookieAccept;
 
-    @FindBy(css = "#nav-home div > div:nth-child(2) > app-goods-card > a > div.rating-and-price > button")
+    @FindBy(css = "#nav-home div > div:nth-child(1) > app-goods-card > a > div.rating-and-price > button")
     private WebElement firstProduct;
 
     @FindBy(xpath = "//button[@aria-label='Close']")

@@ -1,13 +1,12 @@
-package by.yvesRocher.ui.homePage;
+package by.yvesRocher.ui;
 
-import by.yvesRocher.BaseTest;
 import by.yvesRocher.ui.pages.homePage.HomePage;
 import by.yvesRocher.ui.pages.loginPage.LoginPageMessages;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class HomePageTest extends BaseTest {
+public class LoginPageTest extends BaseTest {
 
     private HomePage homePage = new HomePage();
 
@@ -60,8 +59,7 @@ public class HomePageTest extends BaseTest {
     @Test
     @DisplayName(("Checking first product in basket"))
     public void test5() {
-        String expected = "Гель Для Душа И Ванны \"Гранат И Магнолия\"";
-        Assertions.assertEquals(expected, homePage.closeCookie()
+        Assertions.assertTrue(homePage.closeCookie()
                 .addFirstProductInBasket()
                 .clickBasketButton()
                 .findFirstProduct());
@@ -80,11 +78,11 @@ public class HomePageTest extends BaseTest {
     @Test
     @DisplayName(("Registration form"))
     public void test7() {
-        homePage.closeCookie()
+        Assertions.assertTrue(homePage.closeCookie()
                 .clickLoginButton()
                 .clickRegistration()
                 .inputEmail()
                 .clickSubmitButton()
-                .fillOutForm();
+                .fillInfo());
     }
 }

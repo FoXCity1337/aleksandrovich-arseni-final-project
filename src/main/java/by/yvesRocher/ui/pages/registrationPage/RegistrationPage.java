@@ -1,7 +1,6 @@
-package by.yvesRocher.ui.pages;
+package by.yvesRocher.ui.pages.registrationPage;
 
 import by.yvesRocher.ui.pages.homePage.HomePage;
-import by.yvesRocher.ui.pages.loginPage.LoginPage;
 import by.yvesRocher.ui.utils.random.RandomData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -41,6 +40,18 @@ public class RegistrationPage extends HomePage {
     @FindBy(xpath = "//div[@class='select-wrapper'][3]")
     private WebElement selectInnerYear;
 
+    @FindBy(xpath = "//label[@for='is_agree_to_the_processing_of_personal_data']")
+    private WebElement processingOfPersonalData;
+
+    @FindBy(xpath = "//label[@for='get_marketing_newsletter_agreement']")
+    private WebElement marketingNewsletterAgreement;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement submitButton;
+
+    @FindBy(xpath = "//*[@id='toast-container']")
+    private WebElement errorMessage;
+
     public RegistrationPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
@@ -54,20 +65,20 @@ public class RegistrationPage extends HomePage {
         return wait;
     }
 
-    public RegistrationPage fillOutForm() {
+    public boolean fillInfo() {
         maleLabel.click();
         lastnameField.sendKeys(RandomData.generateLastname());
         nameField.sendKeys(RandomData.generateName());
-        patronymicField.sendKeys(RandomData.generateName());
+        patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
-        selectData();
-        return this;
-    }
-
-    private void selectData() {
+        processingOfPersonalData.click();
+        marketingNewsletterAgreement.click();
         selectDay();
         selectMonth();
         selectYear();
+        submitButton.click();
+        getWait().until(ExpectedConditions.visibilityOf(errorMessage));
+        return errorMessage.isDisplayed();
     }
 
     private void selectDay() {
@@ -86,7 +97,7 @@ public class RegistrationPage extends HomePage {
 
     private void selectYear() {
         selectInnerYear.click();
-        String year = "//ul[@class='select-inner year opened']/li[3]";
+        String year = "//ul[@class='select-inner year opened']/li[5]";
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(year)));
         getDriver().findElement(By.xpath(year)).click();
     }

@@ -1,4 +1,4 @@
-package by.yvesRocher;
+package by.yvesRocher.ui;
 
 import by.yvesRocher.ui.utils.driver.Driver;
 import org.junit.jupiter.api.AfterEach;
@@ -17,4 +17,5 @@ public class BaseTest {
     public void tearDown(){
         Driver.quitDriver();
     }
+
 }

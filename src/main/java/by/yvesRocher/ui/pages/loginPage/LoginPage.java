@@ -1,6 +1,6 @@
 package by.yvesRocher.ui.pages.loginPage;
 
-import by.yvesRocher.ui.pages.RegistrationPage;
+import by.yvesRocher.ui.pages.registrationPage.RegistrationPage;
 import by.yvesRocher.ui.pages.homePage.HomePage;
 import by.yvesRocher.ui.utils.random.RandomData;
 import org.openqa.selenium.NoSuchElementException;
