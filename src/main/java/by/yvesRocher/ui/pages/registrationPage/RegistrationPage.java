@@ -71,9 +71,9 @@ public class RegistrationPage extends HomePage {
         maleLabel.click();
         lastnameField.sendKeys(RandomData.generateLastname());
         nameField.sendKeys(RandomData.generateName());
+        js.executeScript("window.scrollBy(0,350)");
         patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
-        js.executeScript("window.scrollBy(0,300)");
         processingOfPersonalData.click();
         marketingNewsletterAgreement.click();
         selectDay();
