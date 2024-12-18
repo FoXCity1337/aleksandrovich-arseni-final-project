@@ -3,7 +3,10 @@ package by.yvesRocher.ui.pages.loginPage;
 import by.yvesRocher.ui.pages.registrationPage.RegistrationPage;
 import by.yvesRocher.ui.pages.homePage.HomePage;
 import by.yvesRocher.ui.utils.random.RandomData;
-import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -64,14 +67,8 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        for (int i = 0; i < 5; i++) {
-            try {
-                authorizationButton.click();
-                break;
-            } catch (ElementClickInterceptedException e) {
-                if (i == 5 - 1) throw e;
-            }
-        }
+        getWait().until(ExpectedConditions.invisibilityOf(authorizationButton));
+        authorizationButton.click();
         return this;
     }
 
