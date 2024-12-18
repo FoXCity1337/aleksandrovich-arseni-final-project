@@ -73,7 +73,7 @@ public class RegistrationPage extends HomePage {
         nameField.sendKeys(RandomData.generateName());
         patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
-        js.executeScript("window.scrollBy(0,200)");
+        js.executeScript("window.scrollBy(0,400)");
         selectDay();
         selectMonth();
         selectYear();
@@ -100,7 +100,7 @@ public class RegistrationPage extends HomePage {
 
     private void selectYear() {
         selectInnerYear.click();
-        String year = "//ul[@class='select-inner year opened']/li[3]";
+        String year = "//ul[@class='select-inner year opened']/li[5]";
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(year)));
         getDriver().findElement(By.xpath(year)).click();
     }
