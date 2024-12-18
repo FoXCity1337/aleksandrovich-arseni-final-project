@@ -22,7 +22,7 @@ public class LoginPage extends HomePage {
     @FindBy(xpath = "//input[@formcontrolname='password']")
     private WebElement passwordField;
 
-    @FindBy(xpath = "/html/body/app-root/ng-component/main/app-auth/ng-component/section/div/div/div[2]/div/div/form/button")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement authorizationButton;
 
     @FindBy(xpath = "//div[@class='ng-star-inserted']")
@@ -33,6 +33,8 @@ public class LoginPage extends HomePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
+    @FindBy(xpath = "//jdiv [@class=\"hoverArea__UN_UB\"]")
+    private WebElement hoverArea;
 
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -67,6 +69,7 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
+        hoverArea.click();
         authorizationButton.click();
         return this;
     }
