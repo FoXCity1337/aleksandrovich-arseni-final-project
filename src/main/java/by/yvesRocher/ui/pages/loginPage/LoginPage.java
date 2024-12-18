@@ -49,7 +49,7 @@ public class LoginPage extends HomePage {
                 emailField.sendKeys(RandomData.generateEmail());
                 break;
             } catch (StaleElementReferenceException | NoSuchElementException e) {
-                if (i == 3 - 1) throw e;
+                if (i == 5 - 1) throw e;
             }
         }
         return this;
