@@ -67,14 +67,7 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        for (int i = 0; i < 5; i++) {
-            try {
-                authorizationButton.click();
-                break;
-            } catch (StaleElementReferenceException | NoSuchElementException e) {
-                if (i == 3 - 1) throw e;
-            }
-        }
+        authorizationButton.click();
         return this;
     }
 
