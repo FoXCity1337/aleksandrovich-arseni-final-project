@@ -4,7 +4,6 @@ import by.yvesRocher.ui.pages.registrationPage.RegistrationPage;
 import by.yvesRocher.ui.pages.homePage.HomePage;
 import by.yvesRocher.ui.utils.random.RandomData;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,6 +30,8 @@ public class LoginPage extends HomePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
+    @FindBy(xpath = "//jdiv [@class=\"hoverArea__UN_UB\"]")
+    private WebElement hoverArea;
 
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -65,8 +66,8 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        Actions dragger = new Actions(driver);
-        dragger.moveToElement(driver.findElement(By.xpath("//button[@type='submit']"))).moveByOffset(777,555).click().perform();
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        js.executeScript("window.scrollBy(0,200)");
         authorizationButton.click();
         return this;
     }
