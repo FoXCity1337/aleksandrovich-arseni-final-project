@@ -3,6 +3,7 @@ package by.yvesRocher.ui.pages.registrationPage;
 import by.yvesRocher.ui.pages.homePage.HomePage;
 import by.yvesRocher.ui.utils.random.RandomData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -66,11 +67,13 @@ public class RegistrationPage extends HomePage {
     }
 
     public boolean fillInfo() {
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
         maleLabel.click();
         lastnameField.sendKeys(RandomData.generateLastname());
         nameField.sendKeys(RandomData.generateName());
         patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
+        js.executeScript("window.scrollBy(0,200)");
         processingOfPersonalData.click();
         marketingNewsletterAgreement.click();
         selectDay();
