@@ -79,6 +79,7 @@ public class RegistrationPage extends HomePage {
         selectYear();
         processingOfPersonalData.click();
         marketingNewsletterAgreement.click();
+        js.executeScript("window.scrollBy(0,400)");
         submitButton.click();
         getWait().until(ExpectedConditions.visibilityOf(errorMessage));
         return errorMessage.isDisplayed();
