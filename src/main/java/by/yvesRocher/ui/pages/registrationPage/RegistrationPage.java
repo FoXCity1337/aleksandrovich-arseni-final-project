@@ -100,7 +100,7 @@ public class RegistrationPage extends HomePage {
 
     private void selectYear() {
         selectInnerYear.click();
-        String year = "//ul[@class='select-inner year opened']/li[5]";
+        String year = "//ul[@class='select-inner year opened']/li[3]";
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(year)));
         getDriver().findElement(By.xpath(year)).click();
     }
