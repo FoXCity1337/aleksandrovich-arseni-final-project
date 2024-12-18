@@ -44,7 +44,7 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage inputEmail() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             try {
                 emailField.sendKeys(RandomData.generateEmail());
                 break;
