@@ -22,7 +22,7 @@ public class LoginPage extends HomePage {
     @FindBy(xpath = "//input[@formcontrolname='password']")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "/html/body/app-root/ng-component/main/app-auth/ng-component/section/div/div/div[2]/div/div/form/button")
     private WebElement authorizationButton;
 
     @FindBy(xpath = "//div[@class='ng-star-inserted']")
