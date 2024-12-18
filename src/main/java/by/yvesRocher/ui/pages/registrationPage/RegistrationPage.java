@@ -67,16 +67,16 @@ public class RegistrationPage extends HomePage {
     }
 
     public boolean fillInfo() {
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
         maleLabel.click();
         lastnameField.sendKeys(RandomData.generateLastname());
         nameField.sendKeys(RandomData.generateName());
         patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
+        js.executeScript("window.scrollBy(0,200)");
         selectDay();
         selectMonth();
         selectYear();
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
-        js.executeScript("window.scrollBy(0,200)");
         processingOfPersonalData.click();
         marketingNewsletterAgreement.click();
         submitButton.click();
