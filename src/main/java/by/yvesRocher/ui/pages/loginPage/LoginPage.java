@@ -67,7 +67,6 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        getWait().until(ExpectedConditions.visibilityOf(authorizationButton));
         authorizationButton.click();
         return this;
     }
