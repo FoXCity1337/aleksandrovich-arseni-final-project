@@ -74,6 +74,7 @@ public class RegistrationPage extends HomePage {
         js.executeScript("window.scrollBy(0,350)");
         patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
+        getWait().until(ExpectedConditions.elementToBeClickable(processingOfPersonalData));
         processingOfPersonalData.click();
         marketingNewsletterAgreement.click();
         selectDay();
