@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LoginPage extends HomePage {
     private WebDriver driver;
     private WebDriverWait wait;
+    private JavascriptExecutor js = (JavascriptExecutor)getDriver();
 
     @FindBy(xpath = "//input[@placeholder='Email']")
     private WebElement emailField;
@@ -66,7 +67,6 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
         js.executeScript("window.scrollBy(0,200)");
         authorizationButton.click();
         return this;
@@ -84,6 +84,7 @@ public class LoginPage extends HomePage {
     }
 
     public RegistrationPage clickSubmitButton(){
+        js.executeScript("window.scrollBy(0,200)");
         submitButton.click();
         return new RegistrationPage(getDriver(),getWait());
     }
