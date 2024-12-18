@@ -84,9 +84,10 @@ public class LoginPage extends HomePage {
     }
 
     public RegistrationPage clickSubmitButton(){
-//        JavascriptExecutor js = (JavascriptExecutor)getDriver();
-//        js.executeScript("window.scrollBy(0,200)");
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        js.executeScript("window.scrollBy(0,200)");
         submitButton.click();
+        js.executeScript("window.scrollBy(0,-200)");
         return new RegistrationPage(getDriver(),getWait());
     }
 }
