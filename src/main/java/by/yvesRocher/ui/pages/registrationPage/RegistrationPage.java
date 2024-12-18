@@ -67,19 +67,18 @@ public class RegistrationPage extends HomePage {
     }
 
     public boolean fillInfo() {
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
         maleLabel.click();
         lastnameField.sendKeys(RandomData.generateLastname());
         nameField.sendKeys(RandomData.generateName());
-        js.executeScript("window.scrollBy(0,350)");
         patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
-        getWait().until(ExpectedConditions.elementToBeClickable(processingOfPersonalData));
-        processingOfPersonalData.click();
-        marketingNewsletterAgreement.click();
         selectDay();
         selectMonth();
         selectYear();
+        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        js.executeScript("window.scrollBy(0,200)");
+        processingOfPersonalData.click();
+        marketingNewsletterAgreement.click();
         submitButton.click();
         getWait().until(ExpectedConditions.visibilityOf(errorMessage));
         return errorMessage.isDisplayed();
