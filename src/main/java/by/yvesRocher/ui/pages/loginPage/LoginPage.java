@@ -67,8 +67,14 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        getWait().until(ExpectedConditions.elementToBeClickable(authorizationButton));
-        authorizationButton.click();
+        for (int i = 0; i < 5; i++) {
+            try {
+                authorizationButton.click();
+                break;
+            } catch (StaleElementReferenceException | NoSuchElementException e) {
+                if (i == 3 - 1) throw e;
+            }
+        }
         return this;
     }
 
