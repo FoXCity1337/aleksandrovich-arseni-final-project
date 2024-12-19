@@ -66,7 +66,7 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,150)");
         authorizationButton.click();
         return this;
@@ -74,20 +74,25 @@ public class LoginPage extends HomePage {
 
     public String getErrorMessage() {
         wait.until(ExpectedConditions.visibilityOf(errorMessage));
-        return errorMessage.getText();
+        String message = errorMessage.getText();
+        if(message.equals("Личный кабинет")){
+        while (!message.equals("Личный кабинет"))
+            message = errorMessage.getText();
+        }
+        return message;
     }
 
-    public LoginPage clickRegistration(){
+    public LoginPage clickRegistration() {
         wait.until(ExpectedConditions.visibilityOf(registration));
         registration.click();
         return this;
     }
 
-    public RegistrationPage clickSubmitButton(){
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+    public RegistrationPage clickSubmitButton() {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,200)");
         submitButton.click();
         js.executeScript("window.scrollBy(0,-200)");
-        return new RegistrationPage(getDriver(),getWait());
+        return new RegistrationPage(getDriver(), getWait());
     }
 }
