@@ -19,6 +19,7 @@ public class LoginPageTest extends BaseTest {
                 .inputPassword(6, 30)
                 .clickAuthorizationButton()
                 .getErrorMessage();
+        System.out.println(actual);
         Assertions.assertEquals(LoginPageMessages.WRONG_DATA_MESSAGE, actual);
     }
 

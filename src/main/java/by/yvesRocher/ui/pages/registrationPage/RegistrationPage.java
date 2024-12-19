@@ -67,7 +67,7 @@ public class RegistrationPage extends HomePage {
     }
 
     public boolean fillInfo() {
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         maleLabel.click();
         lastnameField.sendKeys(RandomData.generateLastname());
         nameField.sendKeys(RandomData.generateName());

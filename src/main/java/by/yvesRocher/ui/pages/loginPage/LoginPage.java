@@ -30,8 +30,6 @@ public class LoginPage extends HomePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
-    @FindBy(xpath = "//jdiv [@class=\"hoverArea__UN_UB\"]")
-    private WebElement hoverArea;
 
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -66,7 +64,7 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,150)");
         authorizationButton.click();
         return this;
@@ -77,17 +75,17 @@ public class LoginPage extends HomePage {
         return errorMessage.getText();
     }
 
-    public LoginPage clickRegistration(){
+    public LoginPage clickRegistration() {
         wait.until(ExpectedConditions.visibilityOf(registration));
         registration.click();
         return this;
     }
 
-    public RegistrationPage clickSubmitButton(){
-        JavascriptExecutor js = (JavascriptExecutor)getDriver();
+    public RegistrationPage clickSubmitButton() {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,200)");
         submitButton.click();
         js.executeScript("window.scrollBy(0,-200)");
-        return new RegistrationPage(getDriver(),getWait());
+        return new RegistrationPage(getDriver(), getWait());
     }
 }
