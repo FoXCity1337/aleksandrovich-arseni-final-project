@@ -67,7 +67,7 @@ public class LoginPage extends HomePage {
 
     public LoginPage clickAuthorizationButton() {
         JavascriptExecutor js = (JavascriptExecutor)getDriver();
-        js.executeScript("window.scrollBy(0,200)");
+        js.executeScript("window.scrollBy(0,150)");
         authorizationButton.click();
         return this;
     }
