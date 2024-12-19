@@ -25,35 +25,38 @@ public class LoginPageTest extends BaseTest {
     @Test
     @DisplayName("Input short password")
     public void test2() {
-        Assertions.assertEquals(LoginPageMessages.SHORT_PASSWORD_MESSAGE, homePage.closeCookie()
+        String actual = homePage.closeCookie()
                 .clickLoginButton()
                 .inputEmail()
                 .inputPassword(1, 5)
                 .clickAuthorizationButton()
-                .getErrorMessage());
+                .getErrorMessage();
+        Assertions.assertEquals(LoginPageMessages.SHORT_PASSWORD_MESSAGE, actual);
     }
 
     @Test
     @DisplayName("Input long password")
     public void test3() {
-        Assertions.assertEquals(LoginPageMessages.LONG_PASSWORD_MESSAGE, homePage.closeCookie()
+        String actual = homePage.closeCookie()
                 .clickLoginButton()
                 .inputEmail()
                 .inputPassword(31, 32)
                 .clickAuthorizationButton()
-                .getErrorMessage());
+                .getErrorMessage();
+        Assertions.assertEquals(LoginPageMessages.LONG_PASSWORD_MESSAGE, actual);
     }
 
     @Test
     @DisplayName("Input invalid email")
     public void test4() {
         String invalidEmail = "123@";
-        Assertions.assertEquals(LoginPageMessages.INVALID_EMAIL_MESSAGE, homePage.closeCookie()
+        String actual = homePage.closeCookie()
                 .clickLoginButton()
                 .inputEmail(invalidEmail)
                 .inputPassword(6, 30)
                 .clickAuthorizationButton()
-                .getErrorMessage());
+                .getErrorMessage();
+        Assertions.assertEquals(LoginPageMessages.INVALID_EMAIL_MESSAGE, actual);
     }
 
     @Test
@@ -69,10 +72,11 @@ public class LoginPageTest extends BaseTest {
     @DisplayName(("Delete product from basket"))
     public void test6() {
         String expected = "пуста";
-        Assertions.assertEquals(expected, homePage.closeCookie()
+        String actual = homePage.closeCookie()
                 .addFirstProductInBasket()
                 .clickBasketButton()
-                .clickDeleteProduct());
+                .clickDeleteProduct();
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
