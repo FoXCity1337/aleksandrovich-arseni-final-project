@@ -43,12 +43,12 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage inputEmail() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             try {
                 emailField.sendKeys(RandomData.generateEmail());
                 break;
             } catch (StaleElementReferenceException | NoSuchElementException e) {
-                if (i == 5 - 1) throw e;
+                if (i == 10 - 1) throw e;
             }
         }
         return this;
