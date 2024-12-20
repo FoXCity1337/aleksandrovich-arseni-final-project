@@ -7,8 +7,4 @@ public class SuccessLogin {
     public String getToken() {
         return token;
     }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

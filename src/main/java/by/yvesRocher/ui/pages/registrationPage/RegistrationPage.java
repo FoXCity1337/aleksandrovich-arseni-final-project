@@ -73,13 +73,13 @@ public class RegistrationPage extends HomePage {
         nameField.sendKeys(RandomData.generateName());
         patronymicField.sendKeys(RandomData.generateLastname());
         passwordField.sendKeys(RandomData.generatePassword(6, 30));
-        //js.executeScript("window.scrollBy(0,400)");
+        js.executeScript("window.scrollBy(0,400)");
         selectDay();
         selectMonth();
         selectYear();
         processingOfPersonalData.click();
         marketingNewsletterAgreement.click();
-        //js.executeScript("window.scrollBy(0,400)");
+        js.executeScript("window.scrollBy(0,400)");
         submitButton.click();
         getWait().until(ExpectedConditions.visibilityOf(errorMessage));
         return errorMessage.isDisplayed();
