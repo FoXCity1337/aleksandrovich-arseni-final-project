@@ -7,10 +7,13 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.text.html.HTML;
+
 import static io.restassured.RestAssured.given;
 
 public class UserDataTest {
     public static String url = "https://api.y-r.by";
+
 
     @Test
     public void test1() {
