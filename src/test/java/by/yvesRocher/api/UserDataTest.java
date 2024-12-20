@@ -14,7 +14,6 @@ import static io.restassured.RestAssured.given;
 public class UserDataTest {
     public static String url = "https://api.y-r.by";
 
-
     @Test
     @DisplayName("Input correct data")
     public void test1() {
