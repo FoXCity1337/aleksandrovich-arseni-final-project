@@ -1,6 +1,8 @@
 package by.yvesRocher.ui.pages.basketPage;
 
 import by.yvesRocher.ui.pages.homePage.HomePage;
+import by.yvesRocher.ui.utils.driver.Driver;
+import by.yvesRocher.ui.utils.driver.Wait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,13 +22,9 @@ public class BasketPage extends HomePage {
     @FindBy(xpath = "//div[@class='delete-btn-and-price']/button[@type='button']")
     private WebElement deleteProduct;
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public BasketPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+    public BasketPage() {
+        this.driver = Driver.getDriver();
+        this.wait = Wait.getWait();
     }
 
     public boolean findFirstProduct() {

@@ -2,6 +2,8 @@ package by.yvesRocher.ui.pages.loginPage;
 
 import by.yvesRocher.ui.pages.registrationPage.RegistrationPage;
 import by.yvesRocher.ui.pages.homePage.HomePage;
+import by.yvesRocher.ui.utils.driver.Driver;
+import by.yvesRocher.ui.utils.driver.Wait;
 import by.yvesRocher.ui.utils.random.RandomData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -31,13 +33,9 @@ public class LoginPage extends HomePage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
 
-    public LoginPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
-    }
-
-    public WebDriver getDriver() {
-        return driver;
+    public LoginPage() {
+        this.driver = Driver.getDriver();
+        this.wait = Wait.getWait();
     }
 
     public LoginPage inputEmail() {
@@ -64,7 +62,7 @@ public class LoginPage extends HomePage {
     }
 
     public LoginPage clickAuthorizationButton() {
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,150)");
         authorizationButton.click();
         return this;
@@ -82,10 +80,10 @@ public class LoginPage extends HomePage {
     }
 
     public RegistrationPage clickSubmitButton() {
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,200)");
         submitButton.click();
         js.executeScript("window.scrollBy(0,-200)");
-        return new RegistrationPage(getDriver(), getWait());
+        return new RegistrationPage();
     }
 }

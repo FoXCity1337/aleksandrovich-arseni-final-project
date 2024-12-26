@@ -37,22 +37,14 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public WebDriverWait getWait() {
-        return wait;
-    }
-
     public BasketPage clickBasketButton() {
         basketButton.click();
-        return new BasketPage(getDriver(), getWait());
+        return new BasketPage();
     }
 
     public LoginPage clickLoginButton() {
         loginButton.click();
-        return new LoginPage(getDriver(), getWait());
+        return new LoginPage();
     }
 
     public HomePage addFirstProductInBasket() {

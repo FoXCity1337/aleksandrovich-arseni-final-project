@@ -1,16 +1,16 @@
 package by.yvesRocher.api.utils;
 
-import by.yvesRocher.api.Registration;
+import by.yvesRocher.api.User;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
 public class ResponseUtil {
-    public static Response createResponse(Registration user) {
+    public static Response createResponse(User user) {
         return given()
                 .body(user)
                 .when()
-                .post("/api/v1/token")
+                .post()
                 .then()
                 .extract().response();
     }
